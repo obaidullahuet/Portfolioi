@@ -2,7 +2,7 @@
 
 import { Box, Typography, Button, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useThemeContext } from '../theme/ThemeProvider';
+// import { useThemeContext } from '../theme/ThemeProvider';
 import DownloadIcon from '@mui/icons-material/Download';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useState } from 'react';
@@ -69,7 +69,7 @@ const progressBarVariants = {
 
 export const Hero = () => {
   const theme = useTheme();
-  const { darkMode } = useThemeContext();
+  // const { darkMode } = useThemeContext();
   const [downloadState, setDownloadState] = useState<'idle' | 'downloading' | 'completed'>('idle');
 
   const handleDownload = () => {
@@ -279,7 +279,7 @@ export const Hero = () => {
                   },
                 }}
               >
-                Let's Connect
+                Lets Connect
               </Button>
             </motion.div>
 

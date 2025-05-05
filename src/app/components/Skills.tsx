@@ -7,7 +7,7 @@ import { useThemeContext } from '@/app/theme/ThemeProvider';
 import {
   SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs,
   SiExpress, SiMongodb, SiPostgresql, SiPython, SiDjango,
-  SiTensorflow, SiPhp, SiLaravel, SiDotnet, SiGit, SiGithub,
+  SiTensorflow, SiPhp, SiLaravel,  SiGit, SiGithub,
   SiDocker, SiFirebase, SiGraphql, SiRedux, SiSass,
   SiTailwindcss, SiFigma, SiAdobexd
 } from 'react-icons/si';
@@ -365,7 +365,7 @@ export const Skills = () => {
               color: theme.palette.text.primary
             }}
           >
-            Technologies I've Worked With
+            Technologies Ive Worked With
           </Typography>
 
           <motion.div

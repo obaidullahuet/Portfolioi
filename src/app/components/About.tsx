@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+// import { useState} from 'react';
 import { Box, Typography, Grid, Avatar, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useThemeContext } from '@/app/theme/ThemeProvider';
@@ -32,84 +32,84 @@ const itemVariants = {
 export const About = () => {
     const theme = useTheme();
     const { darkMode } = useThemeContext();
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    const skillsRef = useRef<HTMLDivElement>(null);
-    const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
-    const skills = [
-        { name: "React", level: 90 },
-        { name: "Next.js", level: 85 },
-        { name: "TypeScript", level: 80 },
-        { name: "Node.js", level: 75 },
-        { name: "UI/UX Design", level: 70 },
-        { name: "GraphQL", level: 65 },
-    ];
+    // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    // const skillsRef = useRef<HTMLDivElement>(null);
+    // const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
+    // const skills = [
+    //     { name: "React", level: 90 },
+    //     { name: "Next.js", level: 85 },
+    //     { name: "TypeScript", level: 80 },
+    //     { name: "Node.js", level: 75 },
+    //     { name: "UI/UX Design", level: 70 },
+    //     { name: "GraphQL", level: 65 },
+    // ];
 
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (skillsRef.current) {
-            const rect = skillsRef.current.getBoundingClientRect();
-            setMousePosition({
-                x: e.clientX - rect.left,
-                y: e.clientY - rect.top
-            });
-        }
-    };
+    // const handleMouseMove = (e: React.MouseEvent) => {
+    //     if (skillsRef.current) {
+    //         const rect = skillsRef.current.getBoundingClientRect();
+    //         setMousePosition({
+    //             x: e.clientX - rect.left,
+    //             y: e.clientY - rect.top
+    //         });
+    //     }
+    // };
 
-    const skillItemVariants = {
-        initial: {
-            opacity: 0,
-            y: 20
-        },
-        animate: (i: number) => ({
-            opacity: 1,
-            y: 0,
-            transition: {
-                delay: i * 0.1,
-            }
-        }),
-        hover: {
-            scale: 1.05,
-            transition: {
-                type: "spring",
-                stiffness: 400,
-                damping: 10
-            }
-        }
-    };
+    // const skillItemVariants = {
+    //     initial: {
+    //         opacity: 0,
+    //         y: 20
+    //     },
+    //     animate: (i: number) => ({
+    //         opacity: 1,
+    //         y: 0,
+    //         transition: {
+    //             delay: i * 0.1,
+    //         }
+    //     }),
+    //     hover: {
+    //         scale: 1.05,
+    //         transition: {
+    //             type: "spring",
+    //             stiffness: 400,
+    //             damping: 10
+    //         }
+    //     }
+    // };
 
-    const skillBarVariants = {
-        initial: {
-            width: 0,
-            opacity: 0.5
-        },
-        animate: (level: number) => ({
-            width: `${level}%`,
-            opacity: 1,
-            transition: {
-                width: {
-                    duration: 1.5,
-                    ease: [0.43, 0.13, 0.23, 0.96],
-                    delay: 0.3
-                },
-                opacity: {
-                    duration: 0.8,
-                    ease: "easeOut"
-                }
-            }
-        })
-    };
+    // const skillBarVariants = {
+    //     initial: {
+    //         width: 0,
+    //         opacity: 0.5
+    //     },
+    //     animate: (level: number) => ({
+    //         width: `${level}%`,
+    //         opacity: 1,
+    //         transition: {
+    //             width: {
+    //                 duration: 1.5,
+    //                 ease: [0.43, 0.13, 0.23, 0.96],
+    //                 delay: 0.3
+    //             },
+    //             opacity: {
+    //                 duration: 0.8,
+    //                 ease: "easeOut"
+    //             }
+    //         }
+    //     })
+    // };
 
-    const percentageVariants = {
-        initial: { opacity: 0, x: -10 },
-        animate: (i: number) => ({
-            opacity: 1,
-            x: 0,
-            transition: {
-                delay: 0.5 + i * 0.05,
-                duration: 0.5,
-                ease: "easeOut"
-            }
-        })
-    };
+    // const percentageVariants = {
+    //     initial: { opacity: 0, x: -10 },
+    //     animate: (i: number) => ({
+    //         opacity: 1,
+    //         x: 0,
+    //         transition: {
+    //             delay: 0.5 + i * 0.05,
+    //             duration: 0.5,
+    //             ease: "easeOut"
+    //         }
+    //     })
+    // };
 
     return (
         <>
@@ -422,7 +422,7 @@ export const About = () => {
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 1.2 }}
                                 >
-                                    Greetings! I'm <strong style={{
+                                    Greetings! Im <strong style={{
                                         background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                                         WebkitBackgroundClip: 'text',
                                         WebkitTextFillColor: 'transparent',
@@ -556,7 +556,7 @@ export const About = () => {
                                 }}
                             >
                                 <Typography variant="body1" sx={{ mr: 1, fontWeight: 700 }}>
-                                    Let's Build Something Amazing
+                                    Lets Build Something Amazing
                                 </Typography>
                                 <motion.div
                                     animate={{ x: [0, 4, 0] }}

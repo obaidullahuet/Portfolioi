@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Typography, Grid, Chip, Button, useTheme, Avatar, Modal, IconButton } from '@mui/material';
+import { Box, Typography, Grid, Chip, Button, useTheme,  Modal, IconButton } from '@mui/material';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useState, useRef } from 'react';
 import { useThemeContext } from '@/app/theme/ThemeProvider';

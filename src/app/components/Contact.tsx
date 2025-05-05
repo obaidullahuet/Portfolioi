@@ -142,7 +142,7 @@ export const Contact = () => {
               lineHeight: 1.2
             }}
           >
-            Let's Connect
+            Lets Connect
           </Typography>
           <Typography
             variant="h6"
@@ -154,7 +154,7 @@ export const Contact = () => {
               fontSize: { xs: '1rem', md: '1.25rem' }
             }}
           >
-            Have a project in mind or want to chat? Drop me a message and I'll get back to you as soon as possible.
+            Have a project in mind or want to chat? Drop me a message and Ill get back to you as soon as possible.
           </Typography>
         </motion.div>
 
