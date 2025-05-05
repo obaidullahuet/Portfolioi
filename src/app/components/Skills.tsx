@@ -178,7 +178,7 @@ export const Skills = () => {
                 fontSize: { xs: '1rem', md: '1.25rem' }
               }}
             >
-              Technologies I've mastered and tools I use to create exceptional digital experiences
+              Technologies Ive mastered and tools I use to create exceptional digital experiences
             </Typography>
           </motion.div>
         </Box>
