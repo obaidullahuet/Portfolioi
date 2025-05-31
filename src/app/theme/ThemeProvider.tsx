@@ -16,6 +16,24 @@ const ThemeContext = createContext<ThemeContextType>({
 
 export const useThemeContext = () => useContext(ThemeContext);
 
+// Tuple type for shadows - exactly 25 strings
+type ShadowsTuple = [
+  "none", string, string, string, string,
+  string, string, string, string, string,
+  string, string, string, string, string,
+  string, string, string, string, string,
+  string, string, string, string, string
+];
+
+const fillShadows = (shadows: string[]): ShadowsTuple => {
+  const defaultShadow = 'none';
+  const filled = [defaultShadow, ...shadows.slice(1)]; // Keep first as 'none'
+  while (filled.length < 25) {
+    filled.push('none');
+  }
+  return filled.slice(0, 25) as ShadowsTuple;
+};
+
 export const CustomThemeProvider = ({ children }: { children: ReactNode }) => {
   const [darkMode, setDarkMode] = useState(true);
 
@@ -53,13 +71,13 @@ export const CustomThemeProvider = ({ children }: { children: ReactNode }) => {
     shape: {
       borderRadius: Number(dark.borderRadius.replace('px', '')),
     },
-    shadows: darkMode ? dark.shadows : light.shadows,
+    shadows: darkMode ? fillShadows(dark.shadows) : fillShadows(light.shadows),
     components: {
       MuiButton: {
         styleOverrides: {
           root: {
             fontWeight: 600,
-            textTransform: 'none', // Optional: removes uppercase transformation
+            textTransform: 'none', // removes uppercase transformation
           },
         },
       },

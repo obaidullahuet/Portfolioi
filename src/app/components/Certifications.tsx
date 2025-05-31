@@ -10,7 +10,8 @@ import { SiGooglecloud,  SiAwslambda } from 'react-icons/si';
 export const Certifications = () => {
   const theme = useTheme();
   const { darkMode } = useThemeContext();
-  const containerRef = useRef<HTMLDivElement>(null);
+  // const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null!);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -325,10 +326,10 @@ export const Certifications = () => {
                   }}
                 />
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <Box className="cert-badge" sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                   <Box sx={{ display: 'flex', gap: '20px', mb: 3 }}>
                     <motion.div 
-                      className="cert-badge"
+                    
                       style={{
                         flexShrink: 0,
                         transition: 'all 0.3s ease'

@@ -6,13 +6,20 @@ import { useState, useRef, useEffect } from 'react';
 import { useThemeContext } from '@/app/theme/ThemeProvider';
 import { SiGithub, SiLinkedin, SiDiscord, SiCodepen } from 'react-icons/si';
 import { FiSend, FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
+import type { RefObject } from 'react';
 
 export const Contact = () => {
   const theme = useTheme();
   const { darkMode } = useThemeContext();
   const controls = useAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  // const ref = useRef(null);
+  // const ref = useRef<Element>(null);
+const ref = useRef<HTMLDivElement>(null);
+
+// When passing to useInView
+const isInView = useInView(ref as RefObject<Element>, { once: true });
+
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',

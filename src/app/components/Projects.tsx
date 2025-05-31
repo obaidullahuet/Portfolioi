@@ -74,7 +74,7 @@ const projectsData = [
 export const Projects = () => {
   const theme = useTheme();
   const { darkMode } = useThemeContext();
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null!);
   const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -152,7 +152,7 @@ export const Projects = () => {
             width: '4px',
             background: theme.palette.background.paper,
             borderRadius: '2px',
-            display: { xs: 'none', md: 'block' }
+             display: 'block' 
           }}
         >
           <motion.div
@@ -238,14 +238,14 @@ export const Projects = () => {
                 viewport={{ once: true }}
                 style={{
                   position: 'absolute',
-                  left: { xs: 0, md: '46px' },
+                  // left: { xs: 0, md: '46px' },
                   top: '40px',
                   width: '16px',
                   height: '16px',
                   borderRadius: '50%',
                   background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                   border: `2px solid ${theme.palette.background.paper}`,
-                  display: { xs: 'none', md: 'block' },
+                  display: 'block' ,
                   zIndex: 2
                 }}
               />
@@ -304,10 +304,11 @@ export const Projects = () => {
                           bottom: 0,
                           background: `linear-gradient(to bottom, transparent 60%, ${darkMode ? 'rgba(0,0,0,0.7)' : 'rgba(0,0,0,0.5)'})`
                         }}
+                        className="play-button"
                       />
                       {/* Play button */}
                       <motion.div
-                        className="play-button"
+                        
                         initial={{ opacity: 0.8 }}
                         whileHover={{ scale: 1.1, opacity: 1 }}
                         transition={{ type: 'spring', stiffness: 400 }}

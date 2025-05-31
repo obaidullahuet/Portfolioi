@@ -7,7 +7,7 @@ import { useThemeContext } from '@/app/theme/ThemeProvider';
 import {
   SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs,
   SiExpress, SiMongodb, SiPostgresql, SiPython, SiDjango,
-  SiTensorflow, SiPhp, SiLaravel,  SiGit, SiGithub,
+  SiTensorflow, SiPhp, SiLaravel, SiGit, SiGithub,
   SiDocker, SiFirebase, SiGraphql, SiRedux, SiSass,
   SiTailwindcss, SiFigma, SiAdobexd
 } from 'react-icons/si';
@@ -263,8 +263,8 @@ export const Skills = () => {
                     </Typography>
 
                     <Grid container spacing={2}>
-                      {category.skills.map((skill) => (
-                        <Grid item xs={6} key={skill.name} component={motion.div}>
+                      {category.skills.map((item) => (
+                        <Grid item xs={6} key={item.name} component={motion.div}>
                           <motion.div
                             whileHover={{
                               y: -5,
@@ -288,11 +288,11 @@ export const Skills = () => {
                                 position: 'relative',
                                 overflow: 'hidden',
                                 '&:hover': {
-                                  boxShadow: `0 8px 24px ${skill.color}40`
+                                  boxShadow: `0 8px 24px ${item.color}40`
                                 }
                               }}
                             >
-                              {/* Skill icon background glow */}
+                              {/* item icon background glow */}
                               <Box
                                 sx={{
                                   position: 'absolute',
@@ -300,7 +300,7 @@ export const Skills = () => {
                                   left: 0,
                                   width: '100%',
                                   height: '100%',
-                                  background: `radial-gradient(circle at center, ${skill.color}10, transparent 70%)`,
+                                  background: `radial-gradient(circle at center, ${item.color}10, transparent 70%)`,
                                   opacity: 0,
                                   transition: 'opacity 0.3s ease',
                                   '&:hover': {
@@ -311,13 +311,13 @@ export const Skills = () => {
 
                               <Box sx={{
                                 fontSize: '2.5rem',
-                                color: skill.color,
+                                color: item.color,
                                 mb: 1,
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center'
                               }}>
-                                {skill.icon}
+                                {item.icon}
                               </Box>
                               <Typography
                                 variant="body2"
@@ -327,7 +327,7 @@ export const Skills = () => {
                                   textAlign: 'center'
                                 }}
                               >
-                                {skill.name}
+                                {item.name}
                               </Typography>
                             </Box>
                           </motion.div>
@@ -388,9 +388,9 @@ export const Skills = () => {
               }
             }}
           >
-            {duplicatedIcons.map((skill, index) => (
+            {duplicatedIcons.map((item, index) => ( // Changed 'skill' to 'item' for clarity
               <motion.div
-                key={`${skill.name}-${index}`}
+                key={`${item.name}-${index}`}
                 style={{
                   margin: '0 20px',
                   display: 'flex',
@@ -418,7 +418,7 @@ export const Skills = () => {
                     right: 0,
                     bottom: 0,
                     borderRadius: '50%',
-                    background: `radial-gradient(circle, ${skill.color}60, transparent 70%)`,
+                    background: `radial-gradient(circle, ${item.color}60, transparent 70%)`,
                     opacity: 0,
                     scale: 0.8
                   }}
@@ -442,7 +442,7 @@ export const Skills = () => {
                     width: '60px',
                     height: '60px',
                     borderRadius: '50%',
-                    background: skill.color,
+                    background: item.color,
                     filter: 'blur(15px)',
                     opacity: 0,
                     x: '-50%',
@@ -461,16 +461,16 @@ export const Skills = () => {
 
                 <Box sx={{
                   fontSize: '48px',
-                  color: skill.color,
+                  color: item.color,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   mb: 1,
                   position: 'relative',
                   zIndex: 1,
-                  textShadow: `0 0 10px ${skill.color}80`
+                  textShadow: `0 0 10px ${item.color}80`
                 }}>
-                  {skill.icon}
+                  {item.icon}
                 </Box>
                 <Typography
                   variant="caption"
@@ -482,7 +482,7 @@ export const Skills = () => {
                     zIndex: 1
                   }}
                 >
-                  {skill.name}
+                  {item.name}
                 </Typography>
               </motion.div>
             ))}

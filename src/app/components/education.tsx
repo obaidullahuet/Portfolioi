@@ -10,7 +10,7 @@ import { IoIosSchool } from 'react-icons/io';
 export const Education = () => {
   const theme = useTheme();
   const { darkMode } = useThemeContext();
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null!);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -196,7 +196,7 @@ export const Education = () => {
           <motion.div
             style={{
               position: 'absolute',
-              left: { xs: '10px', md: '50px' },
+              // left: { xs: '10px', md: '50px' },
               top: 0,
               bottom: 0,
               width: '4px',
