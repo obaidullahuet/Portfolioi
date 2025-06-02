@@ -3,7 +3,7 @@
 import { Box, IconButton, Tooltip, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import {
-  Home as HomeIcon,
+  // Home as HomeIcon,
   Person,
   Work,
   Email,
@@ -41,7 +41,7 @@ export const BottomNav = () => {
   }, []);
 
   const navItems = [
-    { icon: <HomeIcon fontSize="medium" />, label: 'Home', href: '#home' },
+    // { icon: <HomeIcon fontSize="medium" />, label: 'Home', href: '#hero' },
     { icon: <Person fontSize="medium" />, label: 'About', href: '#about' },
     { icon: <Code fontSize="medium" />, label: 'Skills', href: '#skills' },
     { icon: <Timeline fontSize="medium" />, label: 'Experience', href: '#experience' },

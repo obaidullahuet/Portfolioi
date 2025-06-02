@@ -2,10 +2,10 @@
 
 import { Box, Typography, useTheme, Avatar, Chip, Button } from '@mui/material';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useThemeContext } from '@/app/theme/ThemeProvider';
 import { FaBriefcase, FaLaptopCode, FaChartLine } from 'react-icons/fa';
-import { SiGoogle } from 'react-icons/si';
+// import { SiGoogle } from 'react-icons/si';
 
 export const Experience = () => {
   const theme = useTheme();
@@ -16,6 +16,9 @@ export const Experience = () => {
     offset: ["start end", "end start"]
   });
 
+  // State for active filter
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
+
   // Scroll transformations for parallax effects
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0.2]);
@@ -24,48 +27,70 @@ export const Experience = () => {
   const experienceData = [
     {
       id: 1,
-      role: "Senior Software Engineer",
-      company: "Google",
-      period: "2022 - Present",
-      description: "Leading a team developing next-gen AI solutions for Google Cloud. Spearheaded optimization efforts that reduced latency by 40%.",
-      icon: <SiGoogle size={24} />,
-      color: "#4285F4",
-      skills: ["AI/ML", "Cloud Computing", "TensorFlow", "Kubernetes"],
+      role: "Mern Stack Job",
+      company: "Robotronics",
+      period: "Feb 2025 - Present",
+      description: "Developing and maintaining a SAAS-based e-learning platform similar to Udemy. Handling both the main website and admin dashboard. Implementing features for students to view lectures, take quizzes, and purchase courses. Building responsive UIs with Material UI and Tailwind CSS, and optimizing performance with Vite.",
+      icon: <FaLaptopCode size={24} />,
+      color: "#00C4CC",
+      skills: ["React", "Node.js", "Express", "MongoDB", "Material UI", "Tailwind CSS", "Vite", "Redux", "JWT", "REST API"],
       type: "Full-time"
     },
     {
       id: 2,
-      role: "Product Engineer",
-      company: "Microsoft",
-      period: "2020 - 2022",
-      description: "Developed core features for Office 365. Implemented real-time collaboration tools used by millions daily.",
-      icon: <SiGoogle size={24} />,
-      color: "#7FBA00",
-      skills: ["React", "TypeScript", "Node.js", "Azure"],
-      type: "Full-time"
-    },
-    {
-      id: 3,
-      role: "Cloud Solutions Architect",
-      company: "Amazon Web Services",
-      period: "2018 - 2020",
-      description: "Designed scalable cloud infrastructure for enterprise clients. Migrated 50+ legacy systems to AWS.",
-      icon: <SiGoogle size={24} />,
-      color: "#FF9900",
-      skills: ["AWS", "DevOps", "Terraform", "Docker"],
-      type: "Contract"
-    },
-    {
-      id: 4,
-      role: "Software Developer",
-      company: "Tech Startup",
-      period: "2016 - 2018",
-      description: "Built MVP for SaaS platform that was later acquired. Full-stack development with focus on scalability.",
+      role: "Mern Stack Intern",
+      company: "Robotronics",
+      period: "Nov 2024 - Feb 2025",
+      description: "Focused on developing the admin dashboard and backend systems for an e-learning platform. Implemented data visualization for user analytics, course management systems, and authentication flows. Worked extensively with MERN stack and Material UI components.",
       icon: <FaLaptopCode size={24} />,
-      color: "#6C63FF",
-      skills: ["JavaScript", "Python", "PostgreSQL", "Redis"],
-      type: "Full-time"
-    }
+      color: "#4DB6AC",
+      skills: ["React", "Node.js", "Express", "MongoDB", "Material UI", "JWT", "REST API"],
+      type: "Internship"
+    },
+    // {
+    //   id: 3,
+    //   role: "Senior Software Engineer",
+    //   company: "Google",
+    //   period: "2022 - Present",
+    //   description: "Leading a team developing next-gen AI solutions for Google Cloud. Spearheaded optimization efforts that reduced latency by 40%.",
+    //   icon: <SiGoogle size={24} />,
+    //   color: "#4285F4",
+    //   skills: ["AI/ML", "Cloud Computing", "TensorFlow", "Kubernetes"],
+    //   type: "Full-time"
+    // },
+    // {
+    //   id: 4,
+    //   role: "Product Engineer",
+    //   company: "Microsoft",
+    //   period: "2020 - 2022",
+    //   description: "Developed core features for Office 365. Implemented real-time collaboration tools used by millions daily.",
+    //   icon: <SiGoogle size={24} />,
+    //   color: "#7FBA00",
+    //   skills: ["React", "TypeScript", "Node.js", "Azure"],
+    //   type: "Full-time"
+    // },
+    // {
+    //   id: 5,
+    //   role: "Cloud Solutions Architect",
+    //   company: "Amazon Web Services",
+    //   period: "2018 - 2020",
+    //   description: "Designed scalable cloud infrastructure for enterprise clients. Migrated 50+ legacy systems to AWS.",
+    //   icon: <SiGoogle size={24} />,
+    //   color: "#FF9900",
+    //   skills: ["AWS", "DevOps", "Terraform", "Docker"],
+    //   type: "Contract"
+    // },
+    // {
+    //   id: 6,
+    //   role: "Software Developer",
+    //   company: "Tech Startup",
+    //   period: "2016 - 2018",
+    //   description: "Built MVP for SaaS platform that was later acquired. Full-stack development with focus on scalability.",
+    //   icon: <FaLaptopCode size={24} />,
+    //   color: "#6C63FF",
+    //   skills: ["JavaScript", "Python", "PostgreSQL", "Redis"],
+    //   type: "Full-time"
+    // }
   ];
 
   const experienceTypes = [
@@ -73,6 +98,11 @@ export const Experience = () => {
     { icon: <FaLaptopCode />, name: "Contract", color: theme.palette.secondary.main },
     { icon: <FaChartLine />, name: "Internship", color: "#6C63FF" }
   ];
+
+  // Filter experience data based on active filter
+  const filteredExperience = activeFilter 
+    ? experienceData.filter(exp => exp.type === activeFilter)
+    : experienceData;
 
   return (
     <Box 
@@ -220,6 +250,32 @@ export const Experience = () => {
             marginBottom: '40px'
           }}
         >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button
+              onClick={() => setActiveFilter(null)}
+              startIcon={<FaBriefcase />}
+              sx={{
+                background: activeFilter === null 
+                  ? `${theme.palette.primary.main}30` 
+                  : `${theme.palette.primary.main}20`,
+                color: theme.palette.primary.main,
+                borderRadius: '12px',
+                padding: '8px 16px',
+                fontWeight: 600,
+                textTransform: 'none',
+                border: `1px solid ${theme.palette.primary.main}30`,
+                '&:hover': {
+                  background: `${theme.palette.primary.main}30`
+                }
+              }}
+            >
+              All
+            </Button>
+          </motion.div>
+          
           {experienceTypes.map((type, i) => (
             <motion.div
               key={i}
@@ -227,9 +283,12 @@ export const Experience = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Button
+                onClick={() => setActiveFilter(type.name)}
                 startIcon={type.icon}
                 sx={{
-                  background: `${type.color}20`,
+                  background: activeFilter === type.name 
+                    ? `${type.color}30` 
+                    : `${type.color}20`,
                   color: type.color,
                   borderRadius: '12px',
                   padding: '8px 16px',
@@ -256,7 +315,6 @@ export const Experience = () => {
           <motion.div
             style={{
               position: 'absolute',
-              // left: { xs: '10px', md: '50px' },
               top: 0,
               bottom: 0,
               width: '4px',
@@ -279,7 +337,7 @@ export const Experience = () => {
           </motion.div>
 
           {/* Experience items */}
-          {experienceData.map((exp, index) => (
+          {filteredExperience.map((exp, index) => (
             <motion.div
               key={exp.id}
               initial={{ opacity: 0, y: 50 }}

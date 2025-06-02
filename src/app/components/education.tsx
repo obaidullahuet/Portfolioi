@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useThemeContext } from '@/app/theme/ThemeProvider';
 import { FaGraduationCap, FaUniversity } from 'react-icons/fa';
-import { IoIosSchool } from 'react-icons/io';
+// import { IoIosSchool } from 'react-icons/io';
 
 export const Education = () => {
   const theme = useTheme();
@@ -24,33 +24,23 @@ export const Education = () => {
   const educationData = [
     {
       id: 1,
-      degree: "Master of Computer Science",
-      institution: "Stanford University",
-      year: "2020 - 2022",
-      description: "Specialized in Artificial Intelligence and Machine Learning. Completed thesis on Neural Network Optimization.",
+      degree: "Bachelor of Computer Science",
+      institution: "University of Engineering and Technology (UET) Lahore",
+      year: "2021 - 2024",
+      description: "Specialized in Computer Science with a focus on software development and algorithms. Gained practical experience in various programming languages and software engineering principles.",
       icon: <FaUniversity size={24} />,
       color: "#B7094C",
-      courses: ["Advanced ML", "Deep Learning", "Data Structures", "Cloud Computing"]
+      courses: ["Data Structures", "Algorithms", "Database Systems", "Operating Systems", "Software Engineering", "Artificial Intelligence"]
     },
     {
       id: 2,
-      degree: "Bachelor of Software Engineering",
-      institution: "MIT",
-      year: "2016 - 2020",
-      description: "Graduated with honors. Focused on Full Stack Development and System Architecture.",
+      degree: "FSc (Pre-Engineering)",
+      institution: "Punjab College Daska",
+      year: "2019 - 2021",
+      description: "Completed intermediate education with a focus on Mathematics, Physics, and Chemistry as part of the pre-engineering curriculum.",
       icon: <FaGraduationCap size={24} />,
       color: "#0091AD",
-      courses: ["Web Development", "Algorithms", "Database Systems", "Mobile Development"]
-    },
-    {
-      id: 3,
-      degree: "High School Diploma",
-      institution: "Phillips Academy",
-      year: "2012 - 2016",
-      description: "STEM focused curriculum with advanced placement in Computer Science and Mathematics.",
-      icon: <IoIosSchool size={24} />,
-      color: "#5C4D7D",
-      courses: ["AP Computer Science", "Calculus", "Physics", "Statistics"]
+      courses: ["Mathematics", "Physics", "Chemistry"]
     }
   ];
 
@@ -196,7 +186,6 @@ export const Education = () => {
           <motion.div
             style={{
               position: 'absolute',
-              // left: { xs: '10px', md: '50px' },
               top: 0,
               bottom: 0,
               width: '4px',

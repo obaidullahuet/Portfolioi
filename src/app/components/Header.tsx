@@ -6,10 +6,10 @@ import { useThemeContext } from '../theme/ThemeProvider';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { useState, useEffect, useRef } from 'react';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const navItems = [
-  { name: 'Home', href: '#home' },
+  // { name: 'Home', href: '#hero' },
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
@@ -121,7 +121,7 @@ export const Header = () => {
                 background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
               }}
             >
-              JP
+              NA
             </Avatar>
             <Typography
               variant="h6"
@@ -132,7 +132,7 @@ export const Header = () => {
                 display: { xs: 'none', sm: 'block' }
               }}
             >
-              John Portfolio
+              Naqeeb Ahmed Portfolio
             </Typography>
           </Box>
         </motion.div>
@@ -186,9 +186,9 @@ export const Header = () => {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: '2px' }}>
             {[
-              { icon: <FaGithub size={16} />, url: "https://github.com" },
-              { icon: <FaLinkedin size={16} />, url: "https://linkedin.com" },
-              { icon: <FaTwitter size={16} />, url: "https://twitter.com" }
+              { icon: <FaGithub size={16} />, url: "https://github.com/NaqeebAhmedSahi" },
+              { icon: <FaLinkedin size={16} />, url: "https://www.linkedin.com/in/naqeeb-ahmed-sahi-4b5548310/" },
+              // { icon: <FaTwitter size={16} />, url: "https://twitter.com" }
             ].map((social, i) => (
               <IconButton
                 key={i}

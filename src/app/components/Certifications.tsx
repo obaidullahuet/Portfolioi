@@ -5,12 +5,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useThemeContext } from '@/app/theme/ThemeProvider';
 import { FaCertificate, FaAward, FaGraduationCap } from 'react-icons/fa';
-import { SiGooglecloud,  SiAwslambda } from 'react-icons/si';
+import {  SiHtml5,  SiWordpress, SiMongodb, SiFlask, SiReact } from 'react-icons/si';
 
 export const Certifications = () => {
   const theme = useTheme();
   const { darkMode } = useThemeContext();
-  // const containerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLElement>(null!);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -25,47 +24,58 @@ export const Certifications = () => {
   const certificationsData = [
     {
       id: 1,
-      title: "Google Cloud Professional Architect",
-      issuer: "Google Cloud",
+      title: "HTML, CSS, & JavaScript - Certification Course for Beginners",
+      issuer: "Udemy",
       date: "2023",
-      description: "Demonstrated expertise in designing and managing Google Cloud solutions.",
-      icon: <SiGooglecloud size={24} />,
-      color: "#4285F4",
-      skills: ["Cloud Architecture", "GCP", "Security", "Networking"],
-      verification: "https://google.com/certification"
+      description: "Comprehensive course covering the fundamentals of web development with HTML, CSS, and JavaScript.",
+      icon: <SiHtml5 size={24} />,
+      color: "#E44D26",
+      skills: ["HTML5", "CSS3", "JavaScript", "Web Development"],
+      verification: "https://ude.my/UC-c82abff4-8b55-4c5c-84f2-68cdad71b134/"
     },
     {
       id: 2,
-      title: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      date: "2022",
-      description: "Validated technical expertise in designing distributed systems on AWS.",
-      icon: <SiAwslambda size={24} />,
-      color: "#FF9900",
-      skills: ["AWS", "Cloud Design", "Scalability", "Cost Optimization"],
-      verification: "https://aws.amazon.com/certification"
+      title: "WordPress Crash Course: Build any Website in Minutes!",
+      issuer: "Udemy",
+      date: "2023",
+      description: "Learned to quickly build professional websites using WordPress with themes and plugins.",
+      icon: <SiWordpress size={24} />,
+      color: "#21759B",
+      skills: ["WordPress", "CMS", "Website Building", "Themes"],
+      verification: "https://ude.my/UC-98d69993-efbb-440b-990f-aefb83e80909/"
     },
     {
       id: 3,
-      title: "Microsoft Certified: Azure Solutions Architect",
-      issuer: "Microsoft",
-      date: "2021",
-      description: "Proven ability to design and implement solutions on Microsoft Azure.",
-      icon: <SiGooglecloud size={24} />,
-      color: "#0078D4",
-      skills: ["Azure", "DevOps", "Infrastructure", "Security"],
-      verification: "https://microsoft.com/learn/certifications"
+      title: "PyMongo Essentials: Dive into MongoDB with Python",
+      issuer: "Udemy",
+      date: "2023",
+      description: "Mastered MongoDB database operations using Python's PyMongo driver.",
+      icon: <SiMongodb size={24} />,
+      color: "#47A248",
+      skills: ["MongoDB", "PyMongo", "NoSQL", "Python"],
+      verification: "https://www.udemy.com/certificate/UC-91a0ffc7-fb92-4a88-a1ef-98b1c834fb62/"
     },
     {
       id: 4,
-      title: "Certified Kubernetes Administrator",
-      issuer: "Cloud Native Computing Foundation",
-      date: "2020",
-      description: "Demonstrated the skills to maintain Kubernetes clusters in production.",
-      icon: <FaCertificate size={24} />,
-      color: "#326CE5",
-      skills: ["Kubernetes", "Containers", "Orchestration", "CI/CD"],
-      verification: "https://www.cncf.io/certification/cka/"
+      title: "Python And Flask Demonstrations Practice Course",
+      issuer: "Udemy",
+      date: "2023",
+      description: "Hands-on practice building web applications with Python and Flask framework.",
+      icon: <SiFlask size={24} />,
+      color: "#000000",
+      skills: ["Python", "Flask", "Web Framework", "Backend"],
+      verification: "https://www.udemy.com/certificate/UC-1f459e28-f959-4aab-9b05-1b8d30d28b31/"
+    },
+    {
+      id: 5,
+      title: "MERN Stack: All You Need to Know with Practical Project",
+      issuer: "Udemy",
+      date: "2023",
+      description: "Full-stack development using MongoDB, Express, React, and Node.js with a practical project.",
+      icon: <SiReact size={24} />,
+      color: "#61DAFB",
+      skills: ["MERN Stack", "React", "Node.js", "Full Stack"],
+      verification: "https://www.udemy.com/certificate/UC-edf438a7-115c-4e46-b164-a873478be3d9/"
     }
   ];
 
@@ -326,10 +336,10 @@ export const Certifications = () => {
                   }}
                 />
 
-                <Box className="cert-badge" sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                   <Box sx={{ display: 'flex', gap: '20px', mb: 3 }}>
                     <motion.div 
-                    
+                      // className="cert-badge"
                       style={{
                         flexShrink: 0,
                         transition: 'all 0.3s ease'
@@ -344,7 +354,7 @@ export const Certifications = () => {
                           fontSize: '32px',
                           border: `2px solid ${cert.color}`,
                           boxShadow: `0 0 20px ${cert.color}30`
-                        }}
+                        }} 
                       >
                         {cert.icon}
                       </Avatar>
@@ -434,7 +444,7 @@ export const Certifications = () => {
                         }
                       }}
                     >
-                      Verify Certification
+                      View Certificate
                     </Button>
                   </motion.div>
                 </Box>

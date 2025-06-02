@@ -35,9 +35,9 @@ const isInView = useInView(ref as RefObject<Element>, { once: true });
   ];
 
   const contactMethods = [
-    { icon: <FiMapPin size={24} />, title: "Location", info: "San Francisco, CA", color: theme.palette.primary.main },
-    { icon: <FiPhone size={24} />, title: "Phone", info: "+1 (555) 123-4567", color: theme.palette.secondary.main },
-    { icon: <FiMail size={24} />, title: "Email", info: "hello@example.com", color: "#6c63ff" },
+    { icon: <FiMapPin size={24} />, title: "Location", info: "9N, Gulberg II, Lahore, Pakistan", color: theme.palette.primary.main },
+    { icon: <FiPhone size={24} />, title: "Phone", info: "+92 307 6131070", color: theme.palette.secondary.main },
+    { icon: <FiMail size={24} />, title: "Email", info: "naqeebahmedsahi@gmail.com", color: "#6c63ff" },
   ];
 
   useEffect(() => {
