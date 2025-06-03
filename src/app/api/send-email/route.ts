@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     // Email options
     const mailOptions = {
       from: process.env.EMAIL_USER || 'naqeebahmedsahi@gmail.com',
-      to: process.env.EMAIL_TO || 'naqeebahmedsahi@gmail.com', // Your personal email
+      to: process.env.EMAIL_TO || 'portfolionaqeeb@gmail.com', // Your personal email
       subject: subject || `New message from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
