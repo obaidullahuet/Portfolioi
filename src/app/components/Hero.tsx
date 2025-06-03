@@ -46,12 +46,12 @@ const downloadButtonVariants = {
   initial: { scale: 1 },
   tap: { scale: 0.95 },
   hover: { scale: 1.05 },
-  downloading: { 
+  downloading: {
     scale: 0.98,
     backgroundColor: '#4CAF50',
     transition: { duration: 0.5 }
   },
-  completed: { 
+  completed: {
     scale: 1,
     backgroundColor: '#4CAF50',
     transition: { duration: 0.5 }
@@ -60,7 +60,7 @@ const downloadButtonVariants = {
 
 const progressBarVariants = {
   initial: { width: 0 },
-  downloading: { 
+  downloading: {
     width: '100%',
     transition: { duration: 2, ease: "linear" }
   },
@@ -74,15 +74,15 @@ export const Hero = () => {
 
   const handleDownload = () => {
     setDownloadState('downloading');
-    
+
     // Simulate download process
     setTimeout(() => {
       setDownloadState('completed');
-      
+
       // Reset after 2 seconds
       setTimeout(() => {
         setDownloadState('idle');
-        
+
         // In a real app, you would trigger the actual download here
         const link = document.createElement('a');
         link.href = '/MyResume.pdf';
@@ -123,8 +123,8 @@ export const Hero = () => {
               width: `${Math.random() * 10 + 2}px`,
               height: `${Math.random() * 10 + 2}px`,
               borderRadius: '50%',
-              background: theme.palette.mode === 'dark' 
-                ? `rgba(255, 255, 255, ${Math.random() * 0.3})` 
+              background: theme.palette.mode === 'dark'
+                ? `rgba(255, 255, 255, ${Math.random() * 0.3})`
                 : `rgba(0, 0, 0, ${Math.random() * 0.2})`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -175,8 +175,8 @@ export const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        style={{ 
-          maxWidth: '800px', 
+        style={{
+          maxWidth: '800px',
           padding: '0 20px',
           zIndex: 1,
           position: 'relative',
@@ -219,19 +219,25 @@ export const Hero = () => {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Box sx={{ 
-            display: 'flex', 
-            gap: 3, 
+          <Box sx={{
+            display: 'flex',
+            gap: 3,
             justifyContent: 'center',
             flexWrap: 'wrap',
           }}>
-            <motion.div 
-              whileHover={{ scale: 1.05 }} 
+            <motion.div
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               variants={floatingVariants}
               animate="float"
             >
               <Button
+               onClick={() => {
+                  const section = document.getElementById('projects');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 variant="contained"
                 size="large"
                 sx={{
@@ -252,8 +258,8 @@ export const Hero = () => {
               </Button>
             </motion.div>
 
-            <motion.div 
-              whileHover={{ scale: 1.05 }} 
+            <motion.div
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               variants={floatingVariants}
               animate="float"
@@ -262,6 +268,12 @@ export const Hero = () => {
               <Button
                 variant="outlined"
                 size="large"
+                onClick={() => {
+                  const section = document.getElementById('contact');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 sx={{
                   borderWidth: '2px',
                   borderColor: theme.palette.primary.main,
@@ -281,6 +293,7 @@ export const Hero = () => {
               >
                 Lets Connect
               </Button>
+
             </motion.div>
 
             {/* Resume Download Button */}
@@ -306,9 +319,9 @@ export const Hero = () => {
                   onClick={handleDownload}
                   size="large"
                   sx={{
-                    background: downloadState === 'idle' 
-                      ? theme.palette.mode === 'dark' 
-                        ? 'rgba(255, 255, 255, 0.1)' 
+                    background: downloadState === 'idle'
+                      ? theme.palette.mode === 'dark'
+                        ? 'rgba(255, 255, 255, 0.1)'
                         : 'rgba(0, 0, 0, 0.05)'
                       : 'transparent',
                     borderRadius: '50px',
@@ -318,8 +331,8 @@ export const Hero = () => {
                     fontWeight: 'bold',
                     color: downloadState === 'completed' ? '#fff' : theme.palette.text.primary,
                     '&:hover': {
-                      background: theme.palette.mode === 'dark' 
-                        ? 'rgba(255, 255, 255, 0.15)' 
+                      background: theme.palette.mode === 'dark'
+                        ? 'rgba(255, 255, 255, 0.15)'
                         : 'rgba(0, 0, 0, 0.08)',
                     },
                   }}
@@ -336,7 +349,7 @@ export const Hero = () => {
                   {downloadState === 'downloading' && 'Downloading...'}
                   {downloadState === 'completed' && 'Downloaded!'}
                 </Button>
-                
+
                 {/* Progress bar */}
                 {downloadState === 'downloading' && (
                   <motion.div
@@ -353,7 +366,7 @@ export const Hero = () => {
                     }}
                   />
                 )}
-                
+
                 {downloadState === 'completed' && (
                   <motion.div
                     initial={{ opacity: 0 }}

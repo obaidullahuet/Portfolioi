@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Typography, Grid, TextField, Button, IconButton, useTheme } from '@mui/material';
+import { Box, Typography, Grid, TextField, Button, IconButton, useTheme, Snackbar, Alert } from '@mui/material';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { useThemeContext } from '@/app/theme/ThemeProvider';
@@ -12,18 +12,28 @@ export const Contact = () => {
   const theme = useTheme();
   const { darkMode } = useThemeContext();
   const controls = useAnimation();
-  // const ref = useRef(null);
-  // const ref = useRef<Element>(null);
-const ref = useRef<HTMLDivElement>(null);
-
-// When passing to useInView
-const isInView = useInView(ref as RefObject<Element>, { once: true });
-
-
+  const ref = useRef<HTMLDivElement>(null);
+  
+  // Form state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
+    message: ''
+  });
+
+  // Submission state
+  const [submissionState, setSubmissionState] = useState({
+    loading: false,
+    success: false,
+    error: '',
+  });
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+
+  // Form validation state
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
     message: ''
   });
 
@@ -40,6 +50,9 @@ const isInView = useInView(ref as RefObject<Element>, { once: true });
     { icon: <FiMail size={24} />, title: "Email", info: "naqeebahmedsahi@gmail.com", color: "#6c63ff" },
   ];
 
+  // Animation triggers
+  const isInView = useInView(ref as RefObject<Element>, { once: true });
+
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
@@ -47,12 +60,95 @@ const isInView = useInView(ref as RefObject<Element>, { once: true });
   }, [controls, isInView]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    
+    // Clear error when user types
+    if (errors[name as keyof typeof errors]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
   };
 
+  const validateForm = () => {
+    let valid = true;
+    const newErrors = {
+      name: '',
+      email: '',
+      message: ''
+    };
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+      valid = false;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email';
+      valid = false;
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Enter")
+    
+    if (!validateForm()) return;
+
+    setSubmissionState({ loading: true, success: false, error: '' });
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setSubmissionState({ loading: false, success: true, error: '' });
+      setSnackbarOpen(true);
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+      setSubmissionState({ loading: false, success: false, error: errorMessage });
+      setSnackbarOpen(true);
+    }
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackbarOpen(false);
+  };
+
+  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -77,7 +173,7 @@ const isInView = useInView(ref as RefObject<Element>, { once: true });
   };
 
   return (
-    <Box 
+    <Box
       id="contact"
       component="section"
       ref={ref}
@@ -86,8 +182,8 @@ const isInView = useInView(ref as RefObject<Element>, { once: true });
         padding: { xs: '80px 20px', md: '120px 60px' },
         position: 'relative',
         overflow: 'hidden',
-        background: darkMode ? 
-          'radial-gradient(circle at center, #1a1a1a 0%, #000000 100%)' : 
+        background: darkMode ?
+          'radial-gradient(circle at center, #1a1a1a 0%, #000000 100%)' :
           'radial-gradient(circle at center, #f5f5f5 0%, #e0e0e0 100%)',
       }}
     >
@@ -178,6 +274,7 @@ const isInView = useInView(ref as RefObject<Element>, { once: true });
               <motion.div variants={itemVariants}>
                 <Box
                   component="form"
+                  onSubmit={handleSubmit}
                   sx={{
                     background: darkMode ? 'rgba(30, 30, 30, 0.7)' : 'rgba(255, 255, 255, 0.7)',
                     backdropFilter: 'blur(12px)',
@@ -249,6 +346,8 @@ const isInView = useInView(ref as RefObject<Element>, { once: true });
                             onChange={handleChange}
                             multiline={field === 'message'}
                             rows={field === 'message' ? 4 : 1}
+                            error={!!errors[field as keyof typeof errors]}
+                            helperText={errors[field as keyof typeof errors]}
                             sx={{
                               '& .MuiOutlinedInput-root': {
                                 '& fieldset': {
@@ -276,9 +375,11 @@ const isInView = useInView(ref as RefObject<Element>, { once: true });
                         style={{ display: 'inline-block' }}
                       >
                         <Button
+                          type="submit"
                           variant="contained"
                           size="large"
                           endIcon={<FiSend />}
+                          disabled={submissionState.loading}
                           sx={{
                             background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                             borderRadius: '12px',
@@ -288,10 +389,13 @@ const isInView = useInView(ref as RefObject<Element>, { once: true });
                             boxShadow: `0 4px 20px ${theme.palette.primary.main}30`,
                             '&:hover': {
                               boxShadow: `0 6px 24px ${theme.palette.primary.main}50`,
+                            },
+                            '&:disabled': {
+                              opacity: 0.7,
                             }
                           }}
                         >
-                          Send Message
+                          {submissionState.loading ? 'Sending...' : 'Send Message'}
                         </Button>
                       </motion.div>
                     </Grid>
@@ -527,6 +631,24 @@ const isInView = useInView(ref as RefObject<Element>, { once: true });
           </Grid>
         </motion.div>
       </Box>
+
+      {/* Snackbar for notifications */}
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity={submissionState.success ? 'success' : 'error'}
+          sx={{ width: '100%' }}
+        >
+          {submissionState.success 
+            ? 'Message sent successfully!' 
+            : submissionState.error || 'Failed to send message'}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
