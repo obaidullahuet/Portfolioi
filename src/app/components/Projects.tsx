@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Typography, Grid, Chip, Button, useTheme,  Modal, IconButton } from '@mui/material';
+import { Box, Typography, Grid, Chip, Button, useTheme, Modal, IconButton } from '@mui/material';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useState, useRef } from 'react';
 import { useThemeContext } from '@/app/theme/ThemeProvider';
@@ -9,67 +9,72 @@ import ReactPlayer from 'react-player';
 
 // Updated project data with video URLs
 const projectsData = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      description: "A full-featured online store with payment integration, product management, and user authentication.",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1672&q=80",
-      video: "https://www.youtube.com/watch?v=6y5hGiqd9rA", 
-      github: "#",
-      live: "#"
-    },
-    {
-      id: 2,
-      title: "Task Management App",
-      description: "A productivity application for organizing tasks with drag-and-drop functionality and team collaboration.",
-      tags: ["Next.js", "TypeScript", "Firebase", "Tailwind"],
-      image: "https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      video: "https://example.com/videos/ecommerce-demo.mp4", 
-      github: "#",
-      live: "#"
-    },
-    {
-      id: 3,
-      title: "AI Image Generator",
-      description: "Web application that generates images from text prompts using machine learning models.",
-      tags: ["Python", "TensorFlow", "Flask", "React"],
-      image: "https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80",
-      video: "https://example.com/videos/ecommerce-demo.mp4", 
-      github: "#",
-      live: "#"
-    },
-    {
-      id: 4,
-      title: "Social Media Dashboard",
-      description: "Analytics dashboard for social media metrics with real-time data visualization.",
-      tags: ["React", "GraphQL", "D3.js", "Node.js"],
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
-      video: "https://example.com/videos/ecommerce-demo.mp4", 
-      github: "#",
-      live: "#"
-    },
-    {
-      id: 5,
-      title: "Health & Fitness Tracker",
-      description: "Mobile-first application for tracking workouts, nutrition, and health metrics.",
-      tags: ["React Native", "Firebase", "Redux", "Expo"],
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      video: "https://example.com/videos/ecommerce-demo.mp4", 
-      github: "#",
-      live: "#"
-    },
-    {
-      id: 6,
-      title: "Real Estate Platform",
-      description: "Property listing platform with map integration, advanced filters, and virtual tours.",
-      tags: ["Next.js", "Mapbox", "MongoDB", "Node.js"],
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80",
-      video: "https://example.com/videos/ecommerce-demo.mp4", 
-      github: "#",
-      live: "#"
-    }
-  ];
+  {
+    id: 1,
+    title: "Seemed Footcare",
+    description: `<p>
+      A modern medical website built with <span class="font-bold" style="color: #2563eb">Next.js</span> with backend connecting with <span class="font-bold" style="color: #16a34a">MongoDB</span> that scrapes and aggregates data from multiple online sources to showcase healthcare products. Features <span class="font-bold">dynamic routing</span>, email integration using <span class="font-bold" style="color: #9333ea">EmailJS</span>, and a clean, responsive design.
+    </p>`,
+    tags: ["Next.js", "EmailJS", "Web Scraping", "Dynamic Routing"],
+    image: "images/image1.png", // Replace with your own image if available
+    video: "Videos/firstVideo.mp4", // Replace with your video link if available
+    github: "https://github.com/your-username/medical-aggregator", // Replace with your GitHub link
+    live: "https://seemedfootcare.com" // Replace with your live website link
+  },
+  {
+    id: 2,
+    title: "My Portfolio",
+    description: `<p>
+    A sleek personal portfolio built with <span class="font-bold" style="color: #2563eb">Next.js</span>, featuring smooth animations powered by <span class="font-bold" style="color: #6366f1">Framer Motion</span> and modern UI components from <span class="font-bold" style="color: #0ea5e9">Material UI</span>. Includes a functional contact form integrated using <span class="font-bold" style="color: #16a34a">Nodemailer</span> for email communication. Designed to showcase projects, skills, and contact info in a responsive and engaging layout.
+  </p>`,
+    tags: ["Next.js", "Framer Motion", "Material UI", "Nodemailer"],
+    image: "images/image2.png", // Replace with your actual image path
+    video: "Videos/secondVideo.mp4", // Replace with your actual video path
+    github: "https://github.com/your-username/portfolio", // Replace with your actual GitHub repo
+    live: "https://your-portfolio-domain.com" // Replace with your deployed portfolio URL
+  },
+
+  // {
+  //   id: 3,
+  //   title: "AI Image Generator",
+  //   description: "Web application that generates images from text prompts using machine learning models.",
+  //   tags: ["Python", "TensorFlow", "Flask", "React"],
+  //   image: "https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80",
+  //   video: "https://example.com/videos/ecommerce-demo.mp4",
+  //   github: "#",
+  //   live: "#"
+  // },
+  // {
+  //   id: 4,
+  //   title: "Social Media Dashboard",
+  //   description: "Analytics dashboard for social media metrics with real-time data visualization.",
+  //   tags: ["React", "GraphQL", "D3.js", "Node.js"],
+  //   image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+  //   video: "https://example.com/videos/ecommerce-demo.mp4",
+  //   github: "#",
+  //   live: "#"
+  // },
+  // {
+  //   id: 5,
+  //   title: "Health & Fitness Tracker",
+  //   description: "Mobile-first application for tracking workouts, nutrition, and health metrics.",
+  //   tags: ["React Native", "Firebase", "Redux", "Expo"],
+  //   image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+  //   video: "https://example.com/videos/ecommerce-demo.mp4",
+  //   github: "#",
+  //   live: "#"
+  // },
+  // {
+  //   id: 6,
+  //   title: "Real Estate Platform",
+  //   description: "Property listing platform with map integration, advanced filters, and virtual tours.",
+  //   tags: ["Next.js", "Mapbox", "MongoDB", "Node.js"],
+  //   image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80",
+  //   video: "https://example.com/videos/ecommerce-demo.mp4",
+  //   github: "#",
+  //   live: "#"
+  // }
+];
 
 export const Projects = () => {
   const theme = useTheme();
@@ -82,7 +87,7 @@ export const Projects = () => {
     target: containerRef,
     offset: ["start end", "end end"]
   });
-  
+
   const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   const openVideoModal = (project: typeof projectsData[0]) => {
@@ -96,7 +101,7 @@ export const Projects = () => {
   };
 
   return (
-    <Box 
+    <Box
       id="projects"
       component="section"
       ref={containerRef}
@@ -136,8 +141,8 @@ export const Projects = () => {
       ))}
 
       {/* Main container */}
-      <Box sx={{ 
-        maxWidth: '1400px', 
+      <Box sx={{
+        maxWidth: '1400px',
         margin: '0 auto',
         position: 'relative',
         paddingLeft: { md: '100px' }
@@ -152,7 +157,7 @@ export const Projects = () => {
             width: '4px',
             background: theme.palette.background.paper,
             borderRadius: '2px',
-             display: 'block' 
+            display: 'block'
           }}
         >
           <motion.div
@@ -169,8 +174,8 @@ export const Projects = () => {
         </motion.div>
 
         {/* Section header */}
-        <Box sx={{ 
-          textAlign: 'center', 
+        <Box sx={{
+          textAlign: 'center',
           mb: { xs: 4, md: 8 },
           position: 'relative',
           zIndex: 1
@@ -223,9 +228,9 @@ export const Projects = () => {
         {/* Projects list */}
         <Box sx={{ position: 'relative', zIndex: 1 }}>
           {projectsData.map((project, index) => (
-            <Box 
-              key={project.id} 
-              sx={{ 
+            <Box
+              key={project.id}
+              sx={{
                 mb: { xs: 8, md: 12 },
                 position: 'relative'
               }}
@@ -245,14 +250,14 @@ export const Projects = () => {
                   borderRadius: '50%',
                   background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                   border: `2px solid ${theme.palette.background.paper}`,
-                  display: 'block' ,
+                  display: 'block',
                   zIndex: 2
                 }}
               />
 
-              <Grid 
-                container 
-                spacing={6} 
+              <Grid
+                container
+                spacing={6}
                 alignItems="center"
                 direction={index % 2 === 0 ? 'row' : 'row-reverse'}
                 sx={{ position: 'relative' }}
@@ -308,7 +313,7 @@ export const Projects = () => {
                       />
                       {/* Play button */}
                       <motion.div
-                        
+
                         initial={{ opacity: 0.8 }}
                         whileHover={{ scale: 1.1, opacity: 1 }}
                         transition={{ type: 'spring', stiffness: 400 }}
@@ -369,7 +374,7 @@ export const Projects = () => {
                     transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <Box sx={{ 
+                    <Box sx={{
                       position: 'relative',
                       height: '100%',
                       display: 'flex',
@@ -379,7 +384,7 @@ export const Projects = () => {
                       <Typography
                         variant="h3"
                         component="h3"
-                        sx={{ 
+                        sx={{
                           fontWeight: 700,
                           mb: 2,
                           color: theme.palette.text.primary,
@@ -388,19 +393,27 @@ export const Projects = () => {
                       >
                         {project.title}
                       </Typography>
-                      
-                      <Typography
-                        variant="body1"
-                        sx={{ 
+
+                      <Box
+                        sx={{
                           mb: 3,
                           color: theme.palette.text.secondary,
                           lineHeight: 1.8,
-                          fontSize: { xs: '1rem', md: '1.1rem' }
+                          fontSize: { xs: '1rem', md: '1.1rem' },
+                          '& .font-bold': {
+                            fontWeight: 700
+                          },
+                          '& a': {
+                            color: theme.palette.primary.main,
+                            textDecoration: 'none',
+                            '&:hover': {
+                              textDecoration: 'underline'
+                            }
+                          }
                         }}
-                      >
-                        {project.description}
-                      </Typography>
-                      
+                        dangerouslySetInnerHTML={{ __html: project.description }}
+                      />
+
                       <Box sx={{ display: 'flex', gap: 2 }}>
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                           <Button
@@ -424,7 +437,7 @@ export const Projects = () => {
                             Code
                           </Button>
                         </motion.div>
-                        
+
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                           <Button
                             variant="outlined"
