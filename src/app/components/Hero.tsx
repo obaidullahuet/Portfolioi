@@ -361,7 +361,7 @@ export const Hero = () => {
                       bottom: 0,
                       left: 0,
                       height: '4px',
-                      background: theme.palette.primary.main,
+                      background: "red",
                       borderRadius: '0 0 50px 50px',
                     }}
                   />

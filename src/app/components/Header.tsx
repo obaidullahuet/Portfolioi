@@ -121,7 +121,7 @@ export const Header = () => {
                 background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
               }}
             >
-              NA
+              O
             </Avatar>
             <Typography
               variant="h6"
@@ -132,7 +132,7 @@ export const Header = () => {
                 display: { xs: 'none', sm: 'block' }
               }}
             >
-              Naqeeb Ahmed Portfolio
+              Obaidullah Portfolio
             </Typography>
           </Box>
         </motion.div>
@@ -169,9 +169,9 @@ export const Header = () => {
                   style={{
                     position: 'absolute',
                     bottom: 0,
-                    left: '50%',
+                    // left: '50%',
                     transform: 'translateX(-50%)',
-                    width: '20px',
+                    width: '80%',
                     height: '2px',
                     background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                     borderRadius: '2px'

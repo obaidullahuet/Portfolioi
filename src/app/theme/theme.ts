@@ -4,7 +4,8 @@ export const darkTheme = {
       dark: '#564fd1',
     },
     secondary: {
-      main: '#ff6584',
+      // main: '#ff6584',
+      main: '#00cbfd', // Changed to red for visibility
     },
     text: {
       primary: '#f8f9fa',
