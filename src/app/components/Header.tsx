@@ -186,8 +186,8 @@ export const Header = () => {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: '2px' }}>
             {[
-              { icon: <FaGithub size={16} />, url: "https://github.com/NaqeebAhmedSahi" },
-              { icon: <FaLinkedin size={16} />, url: "https://www.linkedin.com/in/naqeeb-ahmed-sahi-4b5548310/" },
+              { icon: <FaGithub size={16} />, url: "https://github.com/obaidullahuet" },
+              { icon: <FaLinkedin size={16} />, url: "https://www.linkedin.com/in/obaidullah-arshad-b7952922b/" },
               // { icon: <FaTwitter size={16} />, url: "https://twitter.com" }
             ].map((social, i) => (
               <IconButton

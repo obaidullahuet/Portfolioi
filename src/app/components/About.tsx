@@ -427,7 +427,7 @@ export const About = () => {
                                         WebkitBackgroundClip: 'text',
                                         WebkitTextFillColor: 'transparent',
                                         fontWeight: 700
-                                    }}>Naqeeb Ahmed</strong>, a passionate <strong>MERN Stack Developer</strong> with expertise in building robust, scalable web applications. My journey combines technical precision with creative vision to deliver exceptional digital experiences.
+                                    }}>Obaidullah </strong>, a passionate <strong>MERN Stack Developer</strong> with expertise in building robust, scalable web applications. My journey combines technical precision with creative vision to deliver exceptional digital experiences.
                                 </motion.span>
                             </Typography>
 

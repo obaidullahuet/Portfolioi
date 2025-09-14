@@ -38,16 +38,16 @@ export const Contact = () => {
   });
 
   const socialLinks = [
-    { icon: <SiGithub />, url: "https://github.com", color: "#181717", name: "GitHub" },
-    { icon: <SiLinkedin />, url: "https://linkedin.com", color: "#0077B5", name: "LinkedIn" },
-    { icon: <SiDiscord />, url: "https://discord.com", color: "#5865F2", name: "Discord" },
+    { icon: <SiGithub />, url: "https://github.com/obaidullahuet/", color: "#ffffff", name: "GitHub" },
+    { icon: <SiLinkedin />, url: "https://www.linkedin.com/in/obaidullah-arshad-b7952922b/", color: "#0077B5", name: "LinkedIn" },
+    { icon: <SiDiscord />, url: "https://discord.com/", color: "#5865F2", name: "Discord" },
     { icon: <SiCodepen />, url: "https://codepen.io", color: "#000000", name: "CodePen" },
   ];
 
   const contactMethods = [
-    { icon: <FiMapPin size={24} />, title: "Location", info: "9N, Gulberg II, Lahore, Pakistan", color: theme.palette.primary.main },
-    { icon: <FiPhone size={24} />, title: "Phone", info: "+92 307 6131070", color: theme.palette.secondary.main },
-    { icon: <FiMail size={24} />, title: "Email", info: "naqeebahmedsahi@gmail.com", color: "#6c63ff" },
+    { icon: <FiMapPin size={24} />, title: "Location", info: "4-A2,Township , Lahore, Pakistan", color: theme.palette.primary.main },
+    { icon: <FiPhone size={24} />, title: "Phone", info: "+92 3131 1684171", color: theme.palette.secondary.main },
+    { icon: <FiMail size={24} />, title: "Email", info: "obaidullahset@gmail.com", color: "#6c63ff" },
   ];
 
   // Animation triggers

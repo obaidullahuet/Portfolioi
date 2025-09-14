@@ -10,7 +10,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Naqeeb Ahmed Sahi Portfolio',
+  title: 'Obaidullah   Portfolio',
   description: 'A beautiful portfolio built with Next.js, Tailwind CSS, and MUI',
 };
 
