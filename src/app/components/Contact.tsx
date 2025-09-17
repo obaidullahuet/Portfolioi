@@ -97,7 +97,7 @@ export const Contact = () => {
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required.';
+      newErrors.message = 'Message is required..';
       valid = false;
     }
 

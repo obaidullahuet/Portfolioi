@@ -188,7 +188,7 @@ export const Header = () => {
             {[
               { icon: <FaGithub size={16} />, url: "https://github.com/obaidullahuet" },
               { icon: <FaLinkedin size={16} />, url: "https://www.linkedin.com/in/obaidullah-arshad-b7952922b/" },
-              // { icon: <FaTwitter size={16} />, url: "https://twitter.com" }
+              // { icon: <FaTwitter size={16} />, url: "httpss://twitter.com" }
             ].map((social, i) => (
               <IconButton
                 key={i}

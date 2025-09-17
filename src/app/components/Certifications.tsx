@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useThemeContext } from '@/app/theme/ThemeProvider';
 import { FaCertificate, FaAward, FaGraduationCap } from 'react-icons/fa';
-import {  SiHtml5,  SiWordpress, SiMongodb, SiFlask, SiReact } from 'react-icons/si';
+import {  SiHtml5,  SiWordpress, SiJavascript, SiMongodb, SiFlask, SiReact } from 'react-icons/si';
 
 export const Certifications = () => {
   const theme = useTheme();
@@ -24,56 +24,45 @@ export const Certifications = () => {
   const certificationsData = [
     {
       id: 1,
-      title: "HTML, CSS, & JavaScript - Certification Course for Beginners",
-      issuer: "Udemy",
-      date: "2023",
+      title:  " Responsive Web Design  Certification Course for Beginners",
+      issuer: "freeCodeCamp",
+      date: "2022",
       description: "Comprehensive course covering the fundamentals of web development with HTML, CSS, and JavaScript.",
       icon: <SiHtml5 size={24} />,
       color: "#E44D26",
       skills: ["HTML5", "CSS3", "JavaScript", "Web Development"],
-      verification: "https://ude.my/UC-c82abff4-8b55-4c5c-84f2-68cdad71b134/"
+      verification: "https://www.freecodecamp.org/certification/0baidullah/responsive-web-design"
     },
     {
       id: 2,
-      title: "WordPress Crash Course: Build any Website in Minutes!",
-      issuer: "Udemy",
+      title: "Legacy JavaScript Algorithms and Data Structures Certification	",
+      issuer: "freeCodeCamp",
       date: "2023",
-      description: "Learned to quickly build professional websites using WordPress with themes and plugins.",
-      icon: <SiWordpress size={24} />,
-      color: "#21759B",
-      skills: ["WordPress", "CMS", "Website Building", "Themes"],
-      verification: "https://ude.my/UC-98d69993-efbb-440b-990f-aefb83e80909/"
+      description: "In-depth training on JavaScript algorithms and data structures, enhancing problem-solving skills.",
+      icon: <SiJavascript size={24} />,
+      color: "#DDA0DD",
+      skills: ["JavaScript", "Algorithms", "Data Structures", "Problem Solving"],
+      verification: "https://www.freecodecamp.org/certification/0baidullah/javascript-algorithms-and-data-structures"
     },
     {
       id: 3,
-      title: "PyMongo Essentials: Dive into MongoDB with Python",
+      title: "MERN Stack: All You Need to Know with Practical Project",
       issuer: "Udemy",
-      date: "2023",
-      description: "Mastered MongoDB database operations using Python's PyMongo driver.",
-      icon: <SiMongodb size={24} />,
-      color: "#47A248",
-      skills: ["MongoDB", "PyMongo", "NoSQL", "Python"],
-      verification: "https://www.udemy.com/certificate/UC-91a0ffc7-fb92-4a88-a1ef-98b1c834fb62/"
+      date: "2024",
+ description: "Full-stack development using MongoDB, Express, React, and Node.js with a practical project.",      icon: <SiReact size={24} />,
+      color: "#61DAFB",
+      skills: ["MERN Stack", "React", "Node.js", "Full Stack"],
+      verification: "https://www.udemy.com/certificate/UC-56cc350d-8fd2-4b93-9baa-2ded97eba6bf/"
     },
+   
     {
       id: 4,
-      title: "Python And Flask Demonstrations Practice Course",
-      issuer: "Udemy",
-      date: "2023",
-      description: "Hands-on practice building web applications with Python and Flask framework.",
-      icon: <SiFlask size={24} />,
-      color: "#000000",
-      skills: ["Python", "Flask", "Web Framework", "Backend"],
-      verification: "https://www.udemy.com/certificate/UC-1f459e28-f959-4aab-9b05-1b8d30d28b31/"
-    },
-    {
-      id: 5,
       title: "MERN Stack: All You Need to Know with Practical Project",
       issuer: "Udemy",
       date: "2023",
       description: "Full-stack development using MongoDB, Express, React, and Node.js with a practical project.",
-      icon: <SiReact size={24} />,
-      color: "#61DAFB",
+      icon: <SiMongodb size={24} />,
+      color: "#47A248",
       skills: ["MERN Stack", "React", "Node.js", "Full Stack"],
       verification: "https://www.udemy.com/certificate/UC-edf438a7-115c-4e46-b164-a873478be3d9/"
     }

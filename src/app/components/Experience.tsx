@@ -28,18 +28,18 @@ export const Experience = () => {
     {
       id: 1,
       role: "Mern Stack Job",
-      company: "Robotronics",
+      company: "Devline Solutions",
       period: "Feb 2025 - Present",
-      description: "Developing and maintaining a SAAS-based e-learning platform similar to Udemy. Handling both the main website and admin dashboard. Implementing features for students to view lectures, take quizzes, and purchase courses. Building responsive UIs with Material UI and Tailwind CSS, and optimizing performance with Vite.",
+     description: "At Devline Solutions, I worked as a Full Stack Developer where I contributed to building and maintaining multiple platforms, including Nohesi (a gaming platform), MedSynk (a medical platform for doctor–patient appointments), and a CRM system with role, client, and workflow management modules. My role spanned frontend and backend development, where I built responsive, user-friendly interfaces using React, Next.js, Svelte, Tailwind CSS, and Material UI, and developed scalable, secure APIs with Node.js, Express.js, and MongoDB. I was involved in the full development lifecycle—from feature design and authentication/authorization to third-party integrations, performance optimization, and deployment—while collaborating with cross-functional teams to deliver reliable, high-quality solutions.",
       icon: <FaLaptopCode size={24} />,
       color: "#00C4CC",
-      skills: ["React", "Node.js", "Express", "MongoDB", "Material UI", "Tailwind CSS", "Vite", "Redux", "JWT", "REST API"],
+      skills: ["React","Next.js","Svelte.js", "Node.js", "Express", "MongoDB", "Material UI", "Tailwind CSS", "Vite", "Redux", "JWT", "REST API"],
       type: "Full-time"
     },
     {
       id: 2,
       role: "Mern Stack Intern",
-      company: "Robotronics",
+          company: "Techitribe",
       period: "Nov 2024 - Feb 2025",
       description: "Focused on developing the admin dashboard and backend systems for an e-learning platform. Implemented data visualization for user analytics, course management systems, and authentication flows. Worked extensively with MERN stack and Material UI components.",
       icon: <FaLaptopCode size={24} />,
