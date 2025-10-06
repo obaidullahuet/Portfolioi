@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useThemeContext } from '@/app/theme/ThemeProvider';
 import { FaCertificate, FaAward, FaGraduationCap } from 'react-icons/fa';
-import {  SiHtml5,  SiWordpress, SiJavascript, SiMongodb, SiFlask, SiReact } from 'react-icons/si';
+import {  SiHtml5,   SiJavascript, SiMongodb, SiReact } from 'react-icons/si';
 
 export const Certifications = () => {
   const theme = useTheme();

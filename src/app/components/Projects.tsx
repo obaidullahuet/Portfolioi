@@ -9,71 +9,71 @@ import ReactPlayer from 'react-player';
 
 // Updated project data with video URLs
 const projectsData = [
-  {
-    id: 1,
-    title: "Seemed Footcare",
-    description: `<p>
-      A modern medical website built with <span class="font-bold" style="color: #2563eb">Next.js</span> with backend connecting with <span class="font-bold" style="color: #16a34a">MongoDB</span> that scrapes and aggregates data from multiple online sources to showcase healthcare products. Features <span class="font-bold">dynamic routing</span>, email integration using <span class="font-bold" style="color: #9333ea">EmailJS</span>, and a clean, responsive design.
-    </p>`,
-    tags: ["Next.js", "EmailJS", "Web Scraping", "Dynamic Routing"],
-    image: "images/image1.png", // Replace with your own image if available
-    video: "Videos/firstVideo.mp4", // Replace with your video link if available
-    github: "https://github.com/your-username/medical-aggregator", // Replace with your GitHub link
-    live: "https://seemedfootcare.com" // Replace with your live website link
-  },
-  {
-    id: 2,
-    title: "My Portfolio",
-    description: `<p>
-    A sleek personal portfolio built with <span class="font-bold" style="color: #2563eb">Next.js</span>, featuring smooth animations powered by <span class="font-bold" style="color: #6366f1">Framer Motion</span> and modern UI components from <span class="font-bold" style="color: #0ea5e9">Material UI</span>. Includes a functional contact form integrated using <span class="font-bold" style="color: #16a34a">Nodemailer</span> for email communication. Designed to showcase projects, skills, and contact info in a responsive and engaging layout.
-  </p>`,
-    tags: ["Next.js", "Framer Motion", "Material UI", "Nodemailer"],
-    image: "images/image2.png", // Replace with your actual image path
-    video: "Videos/secondVideo.mp4", // Replace with your actual video path
-    github: "https://github.com/your-username/portfolio", // Replace with your actual GitHub repo
-    live: "https://your-portfolio-domain.com" // Replace with your deployed portfolio URL
-  },
+  // {
+  //   id: 1,
+  //   title: "Seemed Footcare",
+  //   description: `<p>
+  //     A modern medical website built with <span class="font-bold" style="color: #2563eb">Next.js</span> with backend connecting with <span class="font-bold" style="color: #16a34a">MongoDB</span> that scrapes and aggregates data from multiple online sources to showcase healthcare products. Features <span class="font-bold">dynamic routing</span>, email integration using <span class="font-bold" style="color: #9333ea">EmailJS</span>, and a clean, responsive design.
+  //   </p>`,
+  //   tags: ["Next.js", "EmailJS", "Web Scraping", "Dynamic Routing"],
+  //   image: "images/image1.png", // Replace with your own image if available
+  //   video: "Videos/firstVideo.mp4", // Replace with your video link if available
+  //   github: "https://github.com/your-username/medical-aggregator", // Replace with your GitHub link
+  //   live: "https://seemedfootcare.com" // Replace with your live website link
+  // },
+  // {
+  //   id: 2,
+  //   title: "My Portfolio",
+  //   description: `<p>
+  //   A sleek personal portfolio built with <span class="font-bold" style="color: #2563eb">Next.js</span>, featuring smooth animations powered by <span class="font-bold" style="color: #6366f1">Framer Motion</span> and modern UI components from <span class="font-bold" style="color: #0ea5e9">Material UI</span>. Includes a functional contact form integrated using <span class="font-bold" style="color: #16a34a">Nodemailer</span> for email communication. Designed to showcase projects, skills, and contact info in a responsive and engaging layout.
+  // </p>`,
+  //   tags: ["Next.js", "Framer Motion", "Material UI", "Nodemailer"],
+  //   image: "images/image2.png", // Replace with your actual image path
+  //   video: "Videos/secondVideo.mp4", // Replace with your actual video path
+  //   github: "https://github.com/your-username/portfolio", // Replace with your actual GitHub repo
+  //   live: "https://your-portfolio-domain.com" // Replace with your deployed portfolio URL
+  // },
 
-  // {
-  //   id: 3,
-  //   title: "AI Image Generator",
-  //   description: "Web application that generates images from text prompts using machine learning models.",
-  //   tags: ["Python", "TensorFlow", "Flask", "React"],
-  //   image: "https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80",
-  //   video: "https://example.com/videos/ecommerce-demo.mp4",
-  //   github: "#",
-  //   live: "#"
-  // },
-  // {
-  //   id: 4,
-  //   title: "Social Media Dashboard",
-  //   description: "Analytics dashboard for social media metrics with real-time data visualization.",
-  //   tags: ["React", "GraphQL", "D3.js", "Node.js"],
-  //   image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
-  //   video: "https://example.com/videos/ecommerce-demo.mp4",
-  //   github: "#",
-  //   live: "#"
-  // },
-  // {
-  //   id: 5,
-  //   title: "Health & Fitness Tracker",
-  //   description: "Mobile-first application for tracking workouts, nutrition, and health metrics.",
-  //   tags: ["React Native", "Firebase", "Redux", "Expo"],
-  //   image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-  //   video: "https://example.com/videos/ecommerce-demo.mp4",
-  //   github: "#",
-  //   live: "#"
-  // },
-  // {
-  //   id: 6,
-  //   title: "Real Estate Platform",
-  //   description: "Property listing platform with map integration, advanced filters, and virtual tours.",
-  //   tags: ["Next.js", "Mapbox", "MongoDB", "Node.js"],
-  //   image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80",
-  //   video: "https://example.com/videos/ecommerce-demo.mp4",
-  //   github: "#",
-  //   live: "#"
-  // }
+  {
+    id: 3,
+    title: "Nohesi",
+    description: "No Hesi – A fast-growing car enthusiast community of 1M+ members, bringing highway racing from underground to mainstream. With custom 3D models, innovative gameplay, and sleek design, we’ve built a space where gamers can cut up, drift, and push driving limits like never before.",
+    tags: ["Svelte", "Tailwind", "Node", "React"],
+     image: "images/Nohesi.png",
+    video: "Videos/Nohesi.mp4",
+    github: "#",
+    live: "#"
+  },
+  {
+    id: 4,
+    title: "Medsynk",
+    description: "A comprehensive medical system featuring dedicated interfaces for Admin, Doctors, and Patients. The Admin manages users, appointments, and records, while Doctors can update diagnoses, prescriptions, and schedules. Patients can book appointments, view medical history, and access prescriptions through a user-friendly portal.",
+    tags: ["React", "GraphQL", "D3.js", "Node.js"],
+    image: "images/Medsynk.png",
+    video: "Videos/Medsynk.mp4",
+    github: "#",
+    live: "#"
+  },
+  {
+    id: 5,
+    title: "Bid fair",
+    description: "This project is a Real-Time Auction and Delivery Tracking System developed with Node.js backend and React frontend. It includes three roles: Admin, Buyer, and Seller. The platform supports fixed-price and bidding-based purchases with real-time notifications using WebSockets. It also integrates Google Maps API for live order tracking and delivery updates.",
+    tags: ["React Native", "Firebase", "Redux", "Expo"],
+    image: "images/bid.jpg",
+    video: "https://example.com/videos/ecommerce-demo.mp4",
+    github: "#",
+    live: "#"
+  },
+  {
+    id: 6,
+    title: "Real Estate Platform",
+    description: "Property listing platform with map integration, advanced filters, and virtual tours.",
+    tags: ["Next.js", "Mapbox", "MongoDB", "Node.js"],
+    image: "images/porto.png",
+    video: "Videos/portfolio.mp4",
+    github: "#",
+    live: "#"
+  }
 ];
 
 export const Projects = () => {
@@ -312,7 +312,7 @@ export const Projects = () => {
                         className="play-button"
                       />
                       {/* Play button */}
-                      <motion.div
+                       <motion.div
 
                         initial={{ opacity: 0.8 }}
                         whileHover={{ scale: 1.1, opacity: 1 }}
@@ -334,7 +334,7 @@ export const Projects = () => {
                         }}
                       >
                         <FaPlay size={32} color="#fff" />
-                      </motion.div>
+                      </motion.div> 
                       {/* Tags */}
                       <Box
                         sx={{
