@@ -41,38 +41,38 @@ const projectsData = [
     tags: ["Svelte", "Tailwind", "Node", "React"],
      image: "images/Nohesi.png",
     video: "Videos/Nohesi.mp4",
-    github: "#",
-    live: "#"
+    github: "",
+    live: "https://nohesi.gg/"
   },
   {
     id: 4,
     title: "Medsynk",
     description: "A comprehensive medical system featuring dedicated interfaces for Admin, Doctors, and Patients. The Admin manages users, appointments, and records, while Doctors can update diagnoses, prescriptions, and schedules. Patients can book appointments, view medical history, and access prescriptions through a user-friendly portal.",
-    tags: ["React", "GraphQL", "D3.js", "Node.js"],
+    tags: ["React", "GraphQL", "websockets", "Node.js","stripe"],
     image: "images/Medsynk.png",
     video: "Videos/Medsynk.mp4",
-    github: "#",
+    github: "https://github.com/obaidullahuet/Medsynk",
     live: "#"
   },
   {
     id: 5,
     title: "Bid fair",
     description: "This project is a Real-Time Auction and Delivery Tracking System developed with Node.js backend and React frontend. It includes three roles: Admin, Buyer, and Seller. The platform supports fixed-price and bidding-based purchases with real-time notifications using WebSockets. It also integrates Google Maps API for live order tracking and delivery updates.",
-    tags: ["React Native", "Firebase", "Redux", "Expo"],
+    tags: ["React", "Mongodb", "Redux", "Node", "Websockets"],
     image: "images/bid.jpg",
     video: "https://example.com/videos/ecommerce-demo.mp4",
-    github: "#",
+    github: "https://github.com/obaidullahuet/",
     live: "#"
   },
   {
     id: 6,
-    title: "Real Estate Platform",
-    description: "Property listing platform with map integration, advanced filters, and virtual tours.",
+    title: "My Portfolio",
+    description: "A sleek personal portfolio built with Next.js, featuring smooth animations powered by Framer Motion and modern UI components from Material UI. Includes a functional contact form integrated using Nodemailer for email communication. Designed to showcase projects, skills, and contact info in a responsive and engaging layout.",
     tags: ["Next.js", "Mapbox", "MongoDB", "Node.js"],
     image: "images/porto.png",
     video: "Videos/portfolio.mp4",
-    github: "#",
-    live: "#"
+    github: "https://github.com/obaidullahuet/Portfolioi",
+    live: "https://portfolioi-dfy4.vercel.app/"
   }
 ];
 
